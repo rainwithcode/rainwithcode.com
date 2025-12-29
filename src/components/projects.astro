@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import vanlife from "../../public/van-life.png";
+import dailydose from "../../public/daily-dose.png";
 
 interface Project {
   title: string;
@@ -11,6 +12,12 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    title: "Daily Dose",
+    image: dailydose as ImageMetadata,
+    link: "https://github.com/freeCodeCamp-2025-Summer-Hackathon/indigo-class#",
+    description: "A full-stack platform for daily affirmations and positive self-talk, built with HTML, CSS, JavaScript, and Flask.",
+  },
   {
     title: "Van Life",
     image: vanlife as ImageMetadata,
