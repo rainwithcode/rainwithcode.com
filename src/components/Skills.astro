@@ -1,0 +1,84 @@
+---
+import SkillIcon from './SkillIcon.astro';
+
+const skillCategories = [
+  {
+    title: 'Frontend Development',
+    skills: [
+      { name: 'React' },
+      { name: 'TypeScript' },
+      { name: 'JavaScript' },
+      { name: 'HTML/CSS' },
+      { name: 'Tailwind CSS' },
+      { name: 'Next.js' },
+      { name: 'Vite' },
+      { name: 'Responsive Design' },
+    ],
+  },
+  {
+    title: 'Tools & Technologies',
+    skills: [
+      { name: 'Git' },
+      { name: 'GitHub' },
+      { name: 'REST APIs' },
+      { name: 'GraphQL' },
+      { name: 'Firebase' },
+      { name: 'Supabase' },
+      { name: 'Vercel' },
+      { name: 'Chrome DevTools' },
+    ],
+  },
+  {
+    title: 'Developer Relations',
+    skills: [
+      { name: 'Public Speaking' },
+      { name: 'Technical Writing' },
+      { name: 'Workshop Facilitation' },
+      { name: 'Community Building' },
+      { name: 'Content Creation' },
+      { name: 'Documentation' },
+    ],
+  },
+  {
+    title: 'Best Practices',
+    skills: [
+      { name: 'Accessibility (WCAG)' },
+      { name: 'Web Performance' },
+      { name: 'SEO' },
+      { name: 'Testing' },
+      { name: 'Code Review' },
+      { name: 'Agile Development' },
+    ],
+  },
+];
+---
+
+<section id="skills" class="py-24 px-6">
+  <div class="max-w-6xl mx-auto space-y-12">
+    <div class="space-y-2">
+      <h2 class="text-4xl font-medium text-foreground">Skills & Expertise</h2>
+      <div class="w-20 h-1 bg-gradient-to-r from-secondary to-[#ffb3cc] rounded-full"></div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      {
+        skillCategories.map((category) => (
+          <div class="bg-white/80 backdrop-blur-sm border border-white/20 rounded-xl p-8 hover:shadow-xl hover:bg-white/90 transition-all space-y-4">
+            <h3 class="text-xl font-medium text-foreground">
+              {category.title}
+            </h3>
+
+            <div class="flex flex-wrap gap-2">
+              {category.skills.map((skill) => (
+                <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-accent text-accent-foreground rounded-lg text-xs sm:text-sm flex items-center gap-1.5">
+                  <SkillIcon name={skill.name} class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black" />
+                  {skill.name}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

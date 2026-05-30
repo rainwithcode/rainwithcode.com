@@ -1,0 +1,82 @@
+---
+import Icon from './Icon.astro';
+
+const experiences = [
+  {
+    role: 'Event Lead',
+    organization: 'freeCodeCamp',
+    location: 'Remote',
+    date: 'May 2026 - Present',
+    description: 'Trained and led event coordinators for community events.',
+    icon: 'briefcase',
+  },
+  {
+    role: 'Frontend Developer',
+    organization: 'Mind Ur Project',
+    location: 'Remote',
+    date: 'May 2026 - Present',
+    description: 'Supported technical operations and built frontend experiences.',
+    icon: 'briefcase',
+  },
+  {
+    role: 'Technical Contributor',
+    organization: 'NHCarrigan',
+    location: 'Remote',
+    date: 'Jan. 2026 - Present',
+    description: 'Improved UI accessibility by resolving 2 color contrast issues, achieving WCAG 2.1 AA compliance.',
+    icon: 'briefcase',
+  },
+  {
+    role: 'General Equivalency Diploma',
+    organization: 'Education',
+    date: 'Jan. 2023',
+    icon: 'book-open',
+  },
+];
+---
+
+<section id="experience" class="py-24 px-6 bg-muted/30">
+  <div class="max-w-6xl mx-auto space-y-12">
+    <div class="space-y-2">
+      <h2 class="text-4xl font-medium text-foreground">Experience</h2>
+      <div class="w-20 h-1 bg-gradient-to-r from-secondary to-[#ffb3cc] rounded-full"></div>
+    </div>
+
+    <div class="space-y-6">
+      {
+        experiences.map((exp) => (
+          <div class="bg-white/80 backdrop-blur-sm border border-white/20 rounded-xl p-4 sm:p-6 hover:shadow-xl hover:bg-white/90 transition-all">
+            <div class="flex items-start gap-3 sm:gap-4">
+              <div class="w-9 h-9 sm:w-11 sm:h-11 bg-secondary/20 rounded-lg text-black flex-shrink-0 flex items-center justify-center p-2 sm:p-3">
+                <Icon name={exp.icon ?? 'briefcase'} />
+              </div>
+
+              <div class="flex-1 space-y-2">
+                <div class="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:gap-4">
+                  <div>
+                    <h3 class="text-base sm:text-xl font-medium text-foreground">
+                      {exp.role}
+                    </h3>
+                    <p class="text-sm sm:text-base text-muted-foreground">
+                      {exp.organization}
+                      {exp.location && <span> · {exp.location}</span>}
+                    </p>
+                  </div>
+                  <span class="text-xs sm:text-sm text-muted-foreground whitespace-nowrap">
+                    {exp.date}
+                  </span>
+                </div>
+
+                {exp.description && (
+                  <p class="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                    {exp.description}
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

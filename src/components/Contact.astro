@@ -1,0 +1,128 @@
+---
+import Icon from './Icon.astro';
+import { contact, mailto } from '../data/contact';
+---
+
+<section id="contact" class="py-24 px-6 bg-gradient-to-br from-[#ffe6ef] via-[#ffc4d6] to-[#ffb3cc]">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+      <div class="space-y-8">
+        <div class="space-y-2">
+          <p class="text-primary text-lg font-medium">Let's talk</p>
+          <h2 class="text-4xl font-medium text-foreground">Contact</h2>
+          <div class="w-20 h-1 bg-primary rounded-full"></div>
+        </div>
+
+        <div class="space-y-4">
+          <p class="text-lg text-foreground/80 leading-relaxed">
+            Have a question or a project in mind? Feel free to reach out.
+          </p>
+
+          <div>
+            <p class="text-sm text-foreground/70 mb-1">Contact:</p>
+            <a
+              href={mailto}
+              class="text-lg text-foreground hover:text-primary transition-colors cursor-pointer font-medium"
+            >
+              {contact.email}
+            </a>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-4 pt-4">
+          <a
+            href={contact.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            class="flex h-14 w-14 items-center justify-center border border-white/70 bg-white/80 backdrop-blur-sm text-foreground rounded-lg hover:bg-white transition-colors cursor-pointer shadow-sm sm:h-auto sm:w-auto sm:gap-2 sm:px-6 sm:py-3"
+          >
+            <Icon name="github" class="w-7 h-7 sm:w-4 sm:h-4" />
+            <span class="sr-only sm:not-sr-only">GitHub</span>
+          </a>
+
+          <a
+            href={contact.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            class="flex h-14 w-14 items-center justify-center border border-white/70 bg-white/80 backdrop-blur-sm text-foreground rounded-lg hover:bg-white transition-colors cursor-pointer shadow-sm sm:h-auto sm:w-auto sm:gap-2 sm:px-6 sm:py-3"
+          >
+            <Icon name="linkedin" class="w-7 h-7 sm:w-4 sm:h-4" />
+            <span class="sr-only sm:not-sr-only">LinkedIn</span>
+          </a>
+
+          <a
+            href={mailto}
+            aria-label="Email"
+            class="flex h-14 w-14 items-center justify-center border border-white/70 bg-white/80 backdrop-blur-sm text-foreground rounded-lg hover:bg-white transition-colors cursor-pointer shadow-sm sm:h-auto sm:w-auto sm:gap-2 sm:px-6 sm:py-3"
+          >
+            <Icon name="mail" class="w-7 h-7 sm:w-4 sm:h-4" />
+            <span class="sr-only sm:not-sr-only">Email</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="bg-white/90 backdrop-blur-sm p-8 rounded-2xl border border-white/50 shadow-xl">
+        <form action="https://formspree.io/f/xeeqajvb" method="POST" class="space-y-6">
+          <div>
+            <label for="name" class="block text-sm font-medium text-foreground mb-2">
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              autocomplete="name"
+              placeholder="Jane Doe"
+              required
+              class="w-full px-4 py-3 bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all cursor-text"
+            />
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-medium text-foreground mb-2">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autocomplete="email"
+              placeholder="jane@example.com"
+              required
+              class="w-full px-4 py-3 bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all cursor-text"
+            />
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-medium text-foreground mb-2">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Hi Rain, I came across your portfolio and would love to discuss..."
+              required
+              rows="6"
+              aria-describedby="message-help"
+              class="w-full px-4 py-3 bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all resize-none cursor-text"
+            ></textarea>
+            <p id="message-help" class="mt-2 text-sm text-muted-foreground">
+              Share a few details so I can reply with the right context.
+            </p>
+          </div>
+
+          <input type="hidden" name="_subject" value="New portfolio message" />
+
+          <button
+            type="submit"
+            class="w-full px-8 py-4 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity shadow-sm cursor-pointer font-medium"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

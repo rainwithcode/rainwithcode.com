@@ -1,0 +1,155 @@
+---
+import Icon from './Icon.astro';
+import { mailto } from '../data/contact';
+
+const navItems = [
+  { label: 'About', id: 'about' },
+  { label: 'Projects', id: 'projects' },
+  { label: 'Experience', id: 'experience' },
+  { label: 'Skills', id: 'skills' },
+  { label: 'Contact', id: 'contact' },
+];
+---
+
+<nav
+  data-navigation
+  class="fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-300"
+>
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <button
+      type="button"
+      data-scroll-to="top"
+      class="text-xl font-medium text-foreground hover:text-primary transition-colors cursor-pointer"
+    >
+      Rain With Code
+    </button>
+
+    <div class="hidden md:flex items-center gap-8">
+      {
+        navItems.map((item) => (
+          <button
+            type="button"
+            data-scroll-to={item.id}
+            data-nav-item={item.id}
+            class="relative pb-1 text-foreground hover:text-primary transition-colors cursor-pointer after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-primary after:transition-transform"
+          >
+            {item.label}
+          </button>
+        ))
+      }
+
+      <div class="flex items-center gap-3 ml-2 pl-4 border-l border-border">
+        <a
+          href={mailto}
+          class="text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+          aria-label="Email"
+        >
+          <Icon name="mail" class="w-4 h-4" />
+        </a>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-4 md:hidden">
+      <a
+        href={mailto}
+        class="text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+        aria-label="Email"
+      >
+        <Icon name="mail" class="w-5 h-5" />
+      </a>
+
+      <button
+        type="button"
+        data-mobile-menu-button
+        class="transition-colors text-foreground cursor-pointer"
+        aria-label="Toggle mobile menu"
+        aria-expanded="false"
+      >
+        <span data-menu-icon><Icon name="menu" class="w-6 h-6" /></span>
+        <span data-close-icon class="hidden"><Icon name="x" class="w-6 h-6" /></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div data-mobile-menu class="fixed inset-0 z-40 hidden md:hidden bg-white">
+  <div class="absolute inset-0 flex items-center justify-center p-6">
+    <div class="w-full max-w-sm space-y-8 text-center">
+      {
+        navItems.map((item) => (
+          <button
+            type="button"
+            data-scroll-to={item.id}
+            data-mobile-nav-item={item.id}
+            class="relative mx-auto block w-fit py-4 text-2xl text-foreground hover:text-primary transition-colors cursor-pointer after:absolute after:left-0 after:bottom-2 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-primary after:transition-transform"
+          >
+            {item.label}
+          </button>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<script>
+  const nav = document.querySelector('[data-navigation]');
+  const menuButton = document.querySelector('[data-mobile-menu-button]');
+  const mobileMenu = document.querySelector('[data-mobile-menu]');
+  const menuIcon = document.querySelector('[data-menu-icon]');
+  const closeIcon = document.querySelector('[data-close-icon]');
+  const sections = ['about', 'projects', 'experience', 'skills', 'contact'];
+
+  const setMenuOpen = (isOpen: boolean) => {
+    mobileMenu?.classList.toggle('hidden', !isOpen);
+    menuIcon?.classList.toggle('hidden', isOpen);
+    closeIcon?.classList.toggle('hidden', !isOpen);
+    menuButton?.setAttribute('aria-expanded', String(isOpen));
+  };
+
+  const updateNavigation = () => {
+    nav?.classList.toggle('bg-transparent', window.scrollY <= 50);
+    nav?.classList.toggle('bg-white/70', window.scrollY > 50);
+    nav?.classList.toggle('backdrop-blur-xl', window.scrollY > 50);
+    nav?.classList.toggle('border-b', window.scrollY > 50);
+    nav?.classList.toggle('border-white/20', window.scrollY > 50);
+    nav?.classList.toggle('shadow-lg', window.scrollY > 50);
+
+    let activeSection = '';
+    const scrollPosition = window.scrollY + 200;
+
+    for (const sectionId of sections) {
+      const element = document.getElementById(sectionId);
+      if (!element) continue;
+
+      const offsetTop = element.offsetTop;
+      const offsetBottom = offsetTop + element.offsetHeight;
+
+      if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+        activeSection = sectionId;
+        break;
+      }
+    }
+
+    if (window.scrollY < 200) activeSection = '';
+
+    document.querySelectorAll('[data-nav-item], [data-mobile-nav-item]').forEach((item) => {
+      const isActive = item.getAttribute('data-nav-item') === activeSection || item.getAttribute('data-mobile-nav-item') === activeSection;
+      item.classList.toggle('text-primary', isActive);
+      item.classList.toggle('after:scale-x-100', isActive);
+    });
+  };
+
+  menuButton?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.contains('hidden') ?? true;
+    setMenuOpen(isOpen);
+  });
+
+  mobileMenu?.addEventListener('click', (event) => {
+    if ((event.target as HTMLElement).closest('[data-scroll-to]')) {
+      setMenuOpen(false);
+    }
+  });
+
+  updateNavigation();
+  window.addEventListener('scroll', updateNavigation, { passive: true });
+</script>

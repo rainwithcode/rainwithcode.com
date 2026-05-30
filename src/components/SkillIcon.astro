@@ -1,0 +1,58 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  name: string;
+  class?: string;
+}
+
+const { name, class: className = 'w-4 h-4 text-black' } = Astro.props;
+
+const brandIcons: Record<string, string> = {
+  React: 'https://cdn.simpleicons.org/react/000000',
+  TypeScript: 'https://cdn.simpleicons.org/typescript/000000',
+  JavaScript: 'https://cdn.simpleicons.org/javascript/000000',
+  HTML: 'https://cdn.simpleicons.org/html5/000000',
+  CSS: 'https://cdn.simpleicons.org/css/000000',
+  'HTML/CSS': 'https://cdn.simpleicons.org/css/000000',
+  'Tailwind CSS': 'https://cdn.simpleicons.org/tailwindcss/000000',
+  'Next.js': 'https://cdn.simpleicons.org/nextdotjs/000000',
+  Vite: 'https://cdn.simpleicons.org/vite/000000',
+  Git: 'https://cdn.simpleicons.org/git/000000',
+  GitHub: 'https://cdn.simpleicons.org/github/000000',
+  GraphQL: 'https://cdn.simpleicons.org/graphql/000000',
+  Firebase: 'https://cdn.simpleicons.org/firebase/000000',
+  Supabase: 'https://cdn.simpleicons.org/supabase/000000',
+  Vercel: 'https://cdn.simpleicons.org/vercel/000000',
+  Flask: 'https://cdn.simpleicons.org/flask/000000',
+  'Chrome DevTools': 'https://cdn.simpleicons.org/googlechrome/000000',
+};
+
+const iconNames = {
+  'REST APIs': 'code',
+  'Responsive Design': 'globe',
+  'Public Speaking': 'mic',
+  'Technical Writing': 'pen',
+  'Workshop Facilitation': 'users',
+  'Community Building': 'users',
+  'Content Creation': 'file-text',
+  Documentation: 'book-open',
+  'Accessibility (WCAG)': 'users',
+  'Web Performance': 'gauge',
+  SEO: 'search',
+  Testing: 'check-circle',
+  'Code Review': 'eye',
+  'Agile Development': 'refresh',
+} as const;
+
+const brandIcon = brandIcons[name];
+const lineIconName = iconNames[name as keyof typeof iconNames] ?? 'code';
+---
+
+{
+  brandIcon ? (
+    <img src={brandIcon} alt="" class={className} loading="lazy" width="16" height="16" />
+  ) : (
+    <Icon name={lineIconName} class={className} />
+  )
+}

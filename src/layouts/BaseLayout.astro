@@ -1,0 +1,43 @@
+---
+import '../styles/index.css';
+import favicon from '../assets/favicon.png';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Rain With Code',
+  description = "Showcases a frontend developer's projects, skills, and community work with a clean, minimal portfolio designed to attract DevRel opportunities.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" type="image/png" href={favicon.src} />
+  </head>
+  <body>
+    <slot />
+
+    <script is:inline>
+      document.addEventListener('click', (event) => {
+        const clicked = event.target;
+        if (!(clicked instanceof Element)) return;
+
+        const trigger = clicked.closest('[data-scroll-to]');
+        if (!(trigger instanceof HTMLElement)) return;
+
+        const targetId = trigger.dataset.scrollTo;
+        const target = targetId === 'top' ? document.documentElement : document.getElementById(targetId || '');
+        target?.scrollIntoView({ behavior: 'smooth' });
+      });
+    </script>
+  </body>
+</html>
