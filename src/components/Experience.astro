@@ -6,7 +6,8 @@ const experiences = [
     role: 'Event Lead',
     organization: 'freeCodeCamp',
     location: 'Remote',
-    date: 'May 2026 - Present',
+    startDate: '2026-05',
+    endDate: null,
     description: 'Plan and facilitate online community events for learners and contributors.',
     icon: 'briefcase',
   },
@@ -14,7 +15,8 @@ const experiences = [
     role: 'Freelance Frontend Developer',
     organization: 'Rain With Code',
     location: 'Remote',
-    date: 'Mar. 2026 - Present',
+    startDate: '2026-03',
+    endDate: null,
     description: 'Build and maintain responsive websites for clients using modern web technologies.',
     icon: 'briefcase',
   },
@@ -22,17 +24,33 @@ const experiences = [
     role: 'Founder and Community Lead',
     organization: 'Devite',
     location: 'Cavite, Philippines',
-    date: 'Mar. 2026 - Present',
+    startDate: '2026-03',
+    endDate: null,
     description: 'Founded and grew a 4-member developer community focused on collaborative learning and peer support.',
     icon: 'briefcase',
   },
   {
     role: 'General Equivalency Diploma',
     organization: 'Education',
-    date: 'Jan. 2023',
+    startDate: '2023-01',
     icon: 'book-open',
   },
 ];
+
+const formatDate = (date: string) =>
+  new Intl.DateTimeFormat('en-US', {
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(new Date(`${date}-01T00:00:00Z`));
+
+const formatDateRange = (startDate: string, endDate?: string | null) => {
+  if (endDate === undefined) {
+    return formatDate(startDate);
+  }
+
+  return `${formatDate(startDate)} - ${endDate ? formatDate(endDate) : 'Present'}`;
+};
 ---
 
 <section id="experience" class="py-24 px-6 bg-muted/30">
@@ -63,7 +81,7 @@ const experiences = [
                     </p>
                   </div>
                   <span class="text-xs sm:text-sm text-muted-foreground whitespace-nowrap">
-                    {exp.date}
+                    {formatDateRange(exp.startDate, exp.endDate)}
                   </span>
                 </div>
 
