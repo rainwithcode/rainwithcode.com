@@ -10,13 +10,13 @@ import { contact, mailto } from '../data/contact';
     <div class="grid md:grid-cols-2 gap-8 md:gap-10 items-start">
       <div class="space-y-8">
         <div class="space-y-2">
-          <p class="text-primary text-lg font-medium">Let's talk</p>
-          <h2 class="text-4xl font-medium text-foreground">Contact</h2>
+          <p class="text-primary text-base font-medium sm:text-lg">Let's talk</p>
+          <h2 class="text-3xl font-medium text-foreground sm:text-4xl">Contact</h2>
           <div class="w-20 h-1 bg-primary rounded-full"></div>
         </div>
 
         <div class="space-y-4">
-          <p class="text-lg text-foreground/80 leading-relaxed">
+          <p class="text-base text-foreground/80 leading-relaxed sm:text-lg">
             Have a question or a project in mind? Feel free to reach out.
           </p>
 
@@ -24,7 +24,7 @@ import { contact, mailto } from '../data/contact';
             <p class="text-sm text-primary font-medium mb-1">Email:</p>
             <a
               href={mailto}
-              class="text-lg text-foreground hover:text-primary transition-colors cursor-pointer font-medium"
+              class="text-base text-foreground hover:text-primary transition-colors cursor-pointer font-medium sm:text-lg"
             >
               {contact.email}
             </a>
