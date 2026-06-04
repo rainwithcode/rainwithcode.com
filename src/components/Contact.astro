@@ -3,8 +3,10 @@ import Icon from './Icon.astro';
 import { contact, mailto } from '../data/contact';
 ---
 
-<section id="contact" class="py-24 px-6 bg-gradient-to-br from-[#ffe6ef] via-[#ffc4d6] to-[#ffb3cc]">
-  <div class="max-w-6xl mx-auto">
+<section id="contact" class="py-24 px-6 relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-white via-[#ffe6ef]/20 to-white pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto relative z-10">
     <div class="grid md:grid-cols-2 gap-12 items-start">
       <div class="space-y-8">
         <div class="space-y-2">
@@ -35,7 +37,7 @@ import { contact, mailto } from '../data/contact';
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            class="flex h-14 w-14 items-center justify-center border border-white/70 bg-white/80 backdrop-blur-sm text-foreground rounded-lg hover:border-primary hover:bg-white hover:text-primary hover:ring-2 hover:ring-primary/30 transition-all cursor-pointer shadow-sm lg:h-auto lg:w-auto lg:gap-3 lg:px-6 lg:py-3"
+            class="flex h-14 w-14 items-center justify-center border border-border bg-white text-foreground rounded-lg hover:border-primary hover:text-primary hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer shadow-sm lg:h-auto lg:w-auto lg:gap-3 lg:px-6 lg:py-3"
           >
             <Icon name="github" class="w-8 h-8 lg:w-7 lg:h-7" />
             <span class="sr-only lg:not-sr-only">GitHub</span>
@@ -46,7 +48,7 @@ import { contact, mailto } from '../data/contact';
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            class="flex h-14 w-14 items-center justify-center border border-white/70 bg-white/80 backdrop-blur-sm text-foreground rounded-lg hover:border-primary hover:bg-white hover:text-primary hover:ring-2 hover:ring-primary/30 transition-all cursor-pointer shadow-sm lg:h-auto lg:w-auto lg:gap-3 lg:px-6 lg:py-3"
+            class="flex h-14 w-14 items-center justify-center border border-border bg-white text-foreground rounded-lg hover:border-primary hover:text-primary hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer shadow-sm lg:h-auto lg:w-auto lg:gap-3 lg:px-6 lg:py-3"
           >
             <Icon name="linkedin" class="w-8 h-8 lg:w-7 lg:h-7" />
             <span class="sr-only lg:not-sr-only">LinkedIn</span>
@@ -55,7 +57,7 @@ import { contact, mailto } from '../data/contact';
           <a
             href={mailto}
             aria-label="Email"
-            class="flex h-14 w-14 items-center justify-center border border-white/70 bg-white/80 backdrop-blur-sm text-foreground rounded-lg hover:border-primary hover:bg-white hover:text-primary hover:ring-2 hover:ring-primary/30 transition-all cursor-pointer shadow-sm lg:h-auto lg:w-auto lg:gap-3 lg:px-6 lg:py-3"
+            class="flex h-14 w-14 items-center justify-center border border-border bg-white text-foreground rounded-lg hover:border-primary hover:text-primary hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer shadow-sm lg:h-auto lg:w-auto lg:gap-3 lg:px-6 lg:py-3"
           >
             <Icon name="mail" class="w-8 h-8 lg:w-7 lg:h-7" />
             <span class="sr-only lg:not-sr-only">Email</span>
@@ -63,7 +65,7 @@ import { contact, mailto } from '../data/contact';
         </div>
       </div>
 
-      <div class="bg-white/90 backdrop-blur-sm p-8 rounded-2xl border border-white/50 shadow-xl">
+      <div class="rounded-2xl bg-gradient-to-br from-[#ffe6ef] via-[#ffc4d6] to-[#ffb3cc] p-8 shadow-xl ring-1 ring-white/70">
         <form
           id="contact-form"
           action="https://formspree.io/f/xeeqajvb"
@@ -71,7 +73,7 @@ import { contact, mailto } from '../data/contact';
           class="space-y-6"
         >
           <div>
-            <label for="name" class="block text-sm font-medium text-foreground mb-2">
+            <label for="name" class="block text-sm font-semibold text-foreground mb-2">
               Name
             </label>
             <input
@@ -81,12 +83,12 @@ import { contact, mailto } from '../data/contact';
               autocomplete="name"
               placeholder="Jane Doe"
               required
-              class="w-full px-4 py-3 bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all cursor-text"
+              class="w-full px-4 py-3 bg-white/95 border border-white/80 text-foreground placeholder:text-muted-foreground rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-white transition-all cursor-text"
             />
           </div>
 
           <div>
-            <label for="email" class="block text-sm font-medium text-foreground mb-2">
+            <label for="email" class="block text-sm font-semibold text-foreground mb-2">
               Email
             </label>
             <input
@@ -96,12 +98,12 @@ import { contact, mailto } from '../data/contact';
               autocomplete="email"
               placeholder="jane@example.com"
               required
-              class="w-full px-4 py-3 bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all cursor-text"
+              class="w-full px-4 py-3 bg-white/95 border border-white/80 text-foreground placeholder:text-muted-foreground rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-white transition-all cursor-text"
             />
           </div>
 
           <div>
-            <label for="message" class="block text-sm font-medium text-foreground mb-2">
+            <label for="message" class="block text-sm font-semibold text-foreground mb-2">
               Message
             </label>
             <textarea
@@ -111,9 +113,9 @@ import { contact, mailto } from '../data/contact';
               required
               rows="6"
               aria-describedby="message-help"
-              class="w-full px-4 py-3 bg-white border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all resize-none cursor-text"
+              class="w-full px-4 py-3 bg-white/95 border border-white/80 text-foreground placeholder:text-muted-foreground rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-white transition-all resize-none cursor-text"
             ></textarea>
-            <p id="message-help" class="mt-2 text-sm text-muted-foreground">
+            <p id="message-help" class="mt-2 text-sm text-foreground/70">
               Share a few details so I can reply with the right context.
             </p>
           </div>
