@@ -184,3 +184,35 @@
     line-height: 1.5;
   }
 }
+
+@layer utilities {
+  .shiny-sec {
+    background: linear-gradient(
+      135deg,
+      #ff4f9a 20%,
+      var(--primary) 50%,
+      #ff4f9a 80%
+    );
+    background-size: 400% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 4s linear infinite;
+  }
+}
+
+@keyframes shine {
+  0% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shiny-sec {
+    animation: none;
+  }
+}
