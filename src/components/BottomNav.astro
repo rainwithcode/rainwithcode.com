@@ -1,0 +1,64 @@
+---
+import Icon from './Icon.astro';
+
+const navItems = [
+  { label: 'About', id: 'about', icon: 'user' },
+  { label: 'Projects', id: 'projects', icon: 'code' },
+  { label: 'Experience', id: 'experience', icon: 'briefcase' },
+  { label: 'Skills', id: 'skills', icon: 'wrench' },
+  { label: 'Contact', id: 'contact', icon: 'mail' },
+];
+---
+
+<nav class="fixed bottom-16 left-0 right-0 z-50 md:hidden">
+  <div class="max-w-lg mx-auto px-5 py-4 bg-[#ffe6ef]/80 text-black backdrop-blur-md rounded-full shadow-xl flex items-center justify-between ring-1 ring-white/30">
+    {
+      navItems.map((item) => (
+        <button
+          type="button"
+          data-scroll-to={item.id}
+          data-bottom-nav-item={item.id}
+          class="relative flex flex-col items-center justify-center px-3 py-2 text-black transition-colors hover:text-black cursor-pointer"
+          aria-label={item.label}
+          title={item.label}
+        >
+          <Icon name={item.icon} class="w-6 h-6" />
+          <span class="text-[10px] leading-none mt-0.5">{item.label}</span>
+          <span data-bottom-nav-dot class="absolute -bottom-2 h-1 w-1 rounded-full bg-primary opacity-0 transition-opacity"></span>
+        </button>
+      ))
+    }
+  </div>
+</nav>
+
+<script>
+  const items = Array.from(document.querySelectorAll('[data-bottom-nav-item]'));
+  const sections = ['about', 'projects', 'experience', 'skills', 'contact'];
+
+  const update = () => {
+    const scrollPosition = window.scrollY + (window.innerHeight / 2);
+    let active = '';
+
+    for (const id of sections) {
+      const el = document.getElementById(id);
+      if (!el) continue;
+      const top = el.offsetTop;
+      const bottom = top + el.offsetHeight;
+      if (scrollPosition >= top && scrollPosition < bottom) {
+        active = id;
+        break;
+      }
+    }
+
+    items.forEach((btn) => {
+      const isActive = btn.getAttribute('data-bottom-nav-item') === active;
+      btn.classList.toggle('text-primary', isActive);
+      btn.setAttribute('aria-current', isActive ? 'page' : 'false');
+      const dot = btn.querySelector('[data-bottom-nav-dot]');
+      if (dot) dot.classList.toggle('opacity-100', isActive);
+    });
+  };
+
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+</script>
