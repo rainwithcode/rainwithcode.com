@@ -57,54 +57,13 @@ const navItems = [
       >
         <Icon name="mail" class="w-5 h-5" />
       </a>
-
-      <button
-        type="button"
-        data-mobile-menu-button
-        class="flex h-11 w-11 items-center justify-center rounded-lg transition-colors text-foreground hover:bg-secondary/30 hover:text-primary cursor-pointer"
-        aria-label="Toggle mobile menu"
-        aria-expanded="false"
-      >
-        <span data-menu-icon><Icon name="menu" class="w-6 h-6" /></span>
-        <span data-close-icon class="hidden"><Icon name="x" class="w-6 h-6" /></span>
-      </button>
     </div>
   </div>
 </nav>
 
-<div data-mobile-menu class="fixed inset-0 z-40 hidden md:hidden bg-white">
-  <div class="absolute inset-0 flex items-center justify-center p-6">
-    <div class="w-full max-w-sm space-y-8 text-center">
-      {
-        navItems.map((item) => (
-          <button
-            type="button"
-            data-scroll-to={item.id}
-            data-mobile-nav-item={item.id}
-            class="relative mx-auto block w-fit py-4 text-2xl text-foreground hover:text-primary transition-colors cursor-pointer after:absolute after:left-0 after:bottom-2 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-primary after:transition-transform"
-          >
-            {item.label}
-          </button>
-        ))
-      }
-    </div>
-  </div>
-</div>
-
 <script>
   const nav = document.querySelector('[data-navigation]');
-  const menuButton = document.querySelector('[data-mobile-menu-button]');
-  const mobileMenu = document.querySelector('[data-mobile-menu]');
-  const menuIcon = document.querySelector('[data-menu-icon]');
-  const closeIcon = document.querySelector('[data-close-icon]');
   const sections = ['about', 'projects', 'experience', 'skills', 'contact'];
-
-  const setMenuOpen = (isOpen: boolean) => {
-    mobileMenu?.classList.toggle('hidden', !isOpen);
-    menuIcon?.classList.toggle('hidden', isOpen);
-    closeIcon?.classList.toggle('hidden', !isOpen);
-    menuButton?.setAttribute('aria-expanded', String(isOpen));
-  };
 
   const updateNavigation = () => {
     nav?.classList.toggle('bg-transparent', window.scrollY <= 50);
@@ -138,17 +97,6 @@ const navItems = [
       item.classList.toggle('after:scale-x-100', isActive);
     });
   };
-
-  menuButton?.addEventListener('click', () => {
-    const isOpen = mobileMenu?.classList.contains('hidden') ?? true;
-    setMenuOpen(isOpen);
-  });
-
-  mobileMenu?.addEventListener('click', (event) => {
-    if ((event.target as HTMLElement).closest('[data-scroll-to]')) {
-      setMenuOpen(false);
-    }
-  });
 
   updateNavigation();
   window.addEventListener('scroll', updateNavigation, { passive: true });
