@@ -10,15 +10,15 @@ const navItems = [
 ];
 ---
 
-<nav data-bottom-nav class="fixed bottom-5 left-0 right-0 z-50 md:hidden">
-  <div class="max-w-lg mx-auto px-5 py-4 bg-[#ffe6ef]/80 text-black backdrop-blur-md rounded-full shadow-xl flex items-center justify-between ring-1 ring-white/30">
+<nav data-bottom-nav class="fixed bottom-2 left-0 right-0 z-50 px-6 md:hidden transition-all duration-300">
+  <div class="max-w-lg mx-auto px-3 py-3 bg-[#ffe6ef]/80 text-foreground backdrop-blur-xl rounded-full shadow-xl border border-white/30 ring-1 ring-white/40 flex items-center justify-between">
     {
       navItems.map((item) => (
         <button
           type="button"
           data-scroll-to={item.id}
           data-bottom-nav-item={item.id}
-          class="relative flex flex-col items-center justify-center px-3 py-2 text-black transition-colors hover:text-black cursor-pointer"
+          class="relative flex flex-col items-center justify-center px-2 py-2.5 min-w-[3.1rem] text-foreground transition-colors hover:text-primary cursor-pointer"
           aria-label={item.label}
           title={item.label}
         >
@@ -32,10 +32,13 @@ const navItems = [
 </nav>
 
 <script>
+  const nav = document.querySelector('[data-bottom-nav]');
   const items = Array.from(document.querySelectorAll('[data-bottom-nav-item]'));
   const sections = ['about', 'projects', 'experience', 'skills', 'contact'];
 
   const update = () => {
+    const atTop = window.scrollY <= 24;
+    if (nav) nav.style.bottom = atTop ? '0.5rem' : '1rem';
     const scrollPosition = window.scrollY + (window.innerHeight / 2);
     let active = '';
 
