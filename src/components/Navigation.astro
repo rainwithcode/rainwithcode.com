@@ -15,7 +15,7 @@ const navItems = [
   data-navigation
   class="fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-300"
 >
-  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     <button
       type="button"
       data-scroll-to="top"
@@ -24,16 +24,16 @@ const navItems = [
       Rain With Code
     </button>
 
-    <div class="hidden md:flex items-center gap-8">
+    <div class="hidden md:flex items-center gap-5 lg:gap-7">
       {
         navItems.map((item) => (
           <button
             type="button"
             data-scroll-to={item.id}
             data-nav-item={item.id}
-            class="relative flex items-center gap-1.5 pb-1 text-foreground hover:text-primary transition-colors cursor-pointer after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-primary after:transition-transform"
+            class="relative flex items-center gap-2 whitespace-nowrap px-1.5 py-2 text-foreground hover:text-primary transition-colors cursor-pointer after:absolute after:left-1.5 after:bottom-0 after:h-0.5 after:w-[calc(100%-0.75rem)] after:origin-left after:scale-x-0 after:rounded-full after:bg-primary after:transition-transform"
           >
-            <Icon name={item.icon} class="h-4 w-4" />
+            <Icon name={item.icon} class="h-4 w-4 shrink-0" />
             {item.label}
           </button>
         ))
