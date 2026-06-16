@@ -3,11 +3,11 @@ import Icon from './Icon.astro';
 import { mailto } from '../data/contact';
 
 const navItems = [
-  { label: 'About', id: 'about' },
-  { label: 'Projects', id: 'projects' },
-  { label: 'Experience', id: 'experience' },
-  { label: 'Skills', id: 'skills' },
-  { label: 'Contact', id: 'contact' },
+  { label: 'About', id: 'about', icon: 'user' },
+  { label: 'Projects', id: 'projects', icon: 'code' },
+  { label: 'Experience', id: 'experience', icon: 'briefcase' },
+  { label: 'Skills', id: 'skills', icon: 'wrench' },
+  { label: 'Contact', id: 'contact', icon: 'mail' },
 ];
 ---
 
@@ -31,8 +31,9 @@ const navItems = [
             type="button"
             data-scroll-to={item.id}
             data-nav-item={item.id}
-            class="relative pb-1 text-foreground hover:text-primary transition-colors cursor-pointer after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-primary after:transition-transform"
+            class="relative flex items-center gap-1.5 pb-1 text-foreground hover:text-primary transition-colors cursor-pointer after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-primary after:transition-transform"
           >
+            <Icon name={item.icon} class="h-4 w-4" />
             {item.label}
           </button>
         ))
