@@ -33,7 +33,7 @@ const projects = [
     <div class="grid md:grid-cols-2 gap-6">
       {
         projects.map((project) => (
-          <div class="overflow-hidden bg-white/80 backdrop-blur-sm border border-white/20 rounded-xl hover:shadow-xl hover:bg-white/90 transition-all group">
+          <div class="flex h-full flex-col overflow-hidden bg-white/80 backdrop-blur-sm border border-white/20 rounded-xl hover:shadow-xl hover:bg-white/90 transition-all group">
             {project.deployment ? (
               <a
                 href={project.deployment}
@@ -60,7 +60,7 @@ const projects = [
               </div>
             )}
 
-            <div class="p-6 space-y-4">
+            <div class="flex flex-1 flex-col p-6 space-y-4">
               <h3 class="text-lg font-medium text-foreground group-hover:text-primary transition-colors sm:text-xl">
                 {project.title}
               </h3>
@@ -78,15 +78,15 @@ const projects = [
                 ))}
               </div>
 
-              <div class="flex items-center gap-3 pt-2">
+              <div class="mt-auto flex flex-row flex-wrap gap-3 pt-2">
                 {project.github && (
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex items-center gap-2 text-sm text-primary hover:underline cursor-pointer"
+                    class="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-lg border border-primary/30 bg-white/80 px-3 py-2.5 text-sm font-medium text-primary shadow-sm transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 cursor-pointer sm:flex-none sm:px-4"
                   >
-                    <Icon name="github" class="w-4 h-4" />
+                    <Icon name="github" class="h-4 w-4 shrink-0" />
                     Source Code
                   </a>
                 )}
@@ -95,9 +95,9 @@ const projects = [
                     href={project.deployment}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex items-center gap-2 text-sm text-primary hover:underline cursor-pointer"
+                    class="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-lg bg-primary px-3 py-2.5 text-sm font-medium text-primary-foreground shadow-sm transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 cursor-pointer sm:flex-none sm:px-4"
                   >
-                    <Icon name="globe" class="w-4 h-4" />
+                    <Icon name="globe" class="h-4 w-4 shrink-0" />
                     Live Demo
                   </a>
                 )}
