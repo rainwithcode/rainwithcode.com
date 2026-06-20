@@ -200,13 +200,9 @@
 }
 
 @layer utilities {
-  .dark .themed-section-card {
-    background-color: var(--pink-medium);
-  }
-
   @media (hover: hover) and (pointer: fine) {
     .dark .themed-section-card:hover {
-      background-color: var(--pink-accent);
+      background-color: var(--pink-medium);
     }
   }
 
