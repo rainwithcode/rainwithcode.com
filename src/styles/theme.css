@@ -9,6 +9,7 @@
   --popover: #ffffff;
   --popover-foreground: #1a1a1a;
   --primary: #d91b55;
+  --primary-hover: #bd1749;
   --primary-foreground: #ffffff;
   --secondary: #ffc4d6;
   --secondary-foreground: #1a1a1a;
@@ -54,6 +55,7 @@
   --popover: oklch(0.145 0 0);
   --popover-foreground: oklch(0.985 0 0);
   --primary: #ff7da2;
+  --primary-hover: #ffadc3;
   --primary-foreground: #231018;
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
