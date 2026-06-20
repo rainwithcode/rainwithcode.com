@@ -62,14 +62,14 @@ const skillCategories = [
     <div class="grid md:grid-cols-2 gap-6 md:gap-8">
       {
         skillCategories.map((category) => (
-          <div class="bg-card/80 backdrop-blur-sm border border-border rounded-xl p-8 hover:shadow-xl hover:bg-card transition-all space-y-4 dark:bg-[var(--pink-soft)] dark:border-primary/25 dark:hover:bg-[var(--pink-medium)]">
+          <div class="bg-card/80 backdrop-blur-sm border border-border rounded-xl p-8 hover:shadow-xl hover:bg-card transition-all space-y-4 dark:bg-[var(--pink-medium)] dark:border-primary/25 dark:hover:bg-[var(--pink-accent)]">
             <h3 class="text-lg font-medium text-foreground sm:text-xl">
               {category.title}
             </h3>
 
             <div class="flex flex-wrap gap-2">
               {category.skills.map((skill) => (
-                <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-accent text-accent-foreground rounded-lg text-[11px] sm:text-sm flex items-center gap-1.5">
+                <span class="px-3 py-1.5 sm:px-4 sm:py-2 bg-accent text-accent-foreground rounded-lg border border-transparent text-[11px] sm:text-sm flex items-center gap-1.5 dark:bg-[var(--pink-soft)] dark:text-white dark:border-primary/30">
                   <SkillIcon name={skill.name} class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent-foreground dark:text-white" />
                   {skill.name}
                 </span>
