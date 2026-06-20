@@ -33,7 +33,7 @@ const projects = [
     <div class="grid md:grid-cols-2 gap-6">
       {
         projects.map((project) => (
-          <div class="flex h-full flex-col overflow-hidden bg-card/80 backdrop-blur-sm border border-border rounded-xl hover:shadow-xl hover:bg-card transition-all group dark:bg-[var(--pink-medium)] dark:border-primary/25 dark:hover:bg-[var(--pink-accent)]">
+          <div class="themed-section-card flex h-full flex-col overflow-hidden bg-card/80 backdrop-blur-sm border border-border rounded-xl hover:shadow-xl transition-all group dark:border-primary/25">
             {project.deployment ? (
               <a
                 href={project.deployment}
