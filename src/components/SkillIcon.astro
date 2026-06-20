@@ -6,7 +6,7 @@ interface Props {
   class?: string;
 }
 
-const { name, class: className = 'w-4 h-4 text-black' } = Astro.props;
+const { name, class: className = 'w-4 h-4 text-accent-foreground' } = Astro.props;
 
 const brandIcons: Record<string, string> = {
   React: 'https://cdn.simpleicons.org/react/000000',
@@ -52,7 +52,14 @@ const lineIconName = iconNames[name as keyof typeof iconNames] ?? 'code';
 
 {
   brandIcon ? (
-    <img src={brandIcon} alt="" class={className} loading="lazy" width="16" height="16" />
+    <img
+      src={brandIcon}
+      alt=""
+      class:list={[className, 'dark:invert']}
+      loading="lazy"
+      width="16"
+      height="16"
+    />
   ) : (
     <Icon name={lineIconName} class={className} />
   )

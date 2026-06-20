@@ -33,7 +33,7 @@ const projects = [
     <div class="grid md:grid-cols-2 gap-6">
       {
         projects.map((project) => (
-          <div class="flex h-full flex-col overflow-hidden bg-white/80 backdrop-blur-sm border border-white/20 rounded-xl hover:shadow-xl hover:bg-white/90 transition-all group">
+          <div class="flex h-full flex-col overflow-hidden bg-card/80 backdrop-blur-sm border border-border rounded-xl hover:shadow-xl hover:bg-card transition-all group dark:bg-[var(--pink-soft)] dark:border-primary/25 dark:hover:bg-[var(--pink-medium)]">
             {project.deployment ? (
               <a
                 href={project.deployment}
@@ -84,7 +84,7 @@ const projects = [
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-lg border border-primary/30 bg-white/80 px-3 py-2.5 text-sm font-medium text-primary shadow-sm transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 cursor-pointer sm:min-h-12 sm:flex-none sm:px-5 sm:py-3 sm:text-base"
+                    class="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-lg border border-primary/30 bg-card/80 px-3 py-2.5 text-sm font-medium text-primary shadow-sm transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 cursor-pointer sm:min-h-12 sm:flex-none sm:px-5 sm:py-3 sm:text-base"
                   >
                     <Icon name="github" class="h-4 w-4 shrink-0" />
                     Code

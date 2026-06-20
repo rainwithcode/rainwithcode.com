@@ -8,7 +8,7 @@
   --card-foreground: #1a1a1a;
   --popover: #ffffff;
   --popover-foreground: #1a1a1a;
-  --primary: #ff4474;
+  --primary: #d91b55;
   --primary-foreground: #ffffff;
   --secondary: #ffc4d6;
   --secondary-foreground: #1a1a1a;
@@ -47,18 +47,18 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: #171217;
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
+  --card: #211a21;
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.145 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
+  --primary: #ff7da2;
+  --primary-foreground: #231018;
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
+  --muted-foreground: #c6bac3;
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.396 0.141 25.723);
@@ -81,6 +81,9 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
+  --pink-soft: #321c28;
+  --pink-medium: #492235;
+  --pink-accent: #652943;
 }
 
 @theme inline {
@@ -131,6 +134,15 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  html {
+    background: var(--background);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
   }
 
   /**
@@ -212,6 +224,19 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
   .shiny-sec {
     animation: none;
   }

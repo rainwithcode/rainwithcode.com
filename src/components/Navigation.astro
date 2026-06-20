@@ -1,5 +1,6 @@
 ---
 import Icon from './Icon.astro';
+import ThemeToggle from './ThemeToggle.astro';
 import { mailto } from '../data/contact';
 
 const navItems = [
@@ -40,19 +41,21 @@ const navItems = [
       }
 
       <div class="flex items-center gap-3 ml-2 pl-4 border-l border-border">
+        <ThemeToggle />
         <a
           href={mailto}
-          class="rounded-full bg-primary px-4 py-2 text-white font-medium hover:bg-primary/90 transition-colors cursor-pointer"
+          class="rounded-full bg-primary px-4 py-2 text-primary-foreground font-medium hover:bg-primary/90 transition-colors cursor-pointer"
         >
           Contact
         </a>
       </div>
     </div>
 
-    <div class="flex items-center gap-4 md:hidden">
+    <div class="flex items-center gap-3 md:hidden">
+      <ThemeToggle />
       <a
         href={mailto}
-        class="rounded-full bg-primary px-4 py-2 text-white font-medium hover:bg-primary/90 transition-colors cursor-pointer"
+        class="rounded-full bg-primary px-4 py-2 text-primary-foreground font-medium hover:bg-primary/90 transition-colors cursor-pointer"
       >
         Contact
       </a>
@@ -66,10 +69,10 @@ const navItems = [
 
   const updateNavigation = () => {
     nav?.classList.toggle('bg-transparent', window.scrollY <= 50);
-    nav?.classList.toggle('bg-white/70', window.scrollY > 50);
+    nav?.classList.toggle('bg-background/80', window.scrollY > 50);
     nav?.classList.toggle('backdrop-blur-xl', window.scrollY > 50);
     nav?.classList.toggle('border-b', window.scrollY > 50);
-    nav?.classList.toggle('border-white/20', window.scrollY > 50);
+    nav?.classList.toggle('border-border', window.scrollY > 50);
     nav?.classList.toggle('shadow-lg', window.scrollY > 50);
 
     let activeSection = '';

@@ -4,7 +4,7 @@ import { contact, mailto } from '../data/contact';
 ---
 
 <section id="contact" class="py-10 px-6 md:py-20 relative overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-br from-white via-[#ffe6ef]/20 to-white pointer-events-none"></div>
+  <div class="absolute inset-0 bg-gradient-to-br from-background via-accent/20 to-background pointer-events-none"></div>
 
   <div class="max-w-6xl mx-auto relative z-10">
     <div class="grid md:grid-cols-2 gap-6 md:gap-10 items-start">
@@ -37,7 +37,7 @@ import { contact, mailto } from '../data/contact';
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            class="flex h-14 w-14 items-center justify-center border border-border bg-white text-foreground rounded-lg hover:border-primary hover:text-primary hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer shadow-sm lg:h-auto lg:w-auto lg:gap-3 lg:px-6 lg:py-3"
+            class="flex h-14 w-14 items-center justify-center border border-border bg-card text-foreground rounded-lg hover:border-primary hover:text-primary hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer shadow-sm lg:h-auto lg:w-auto lg:gap-3 lg:px-6 lg:py-3"
           >
             <Icon name="github" class="w-8 h-8 lg:w-7 lg:h-7" />
             <span class="sr-only lg:not-sr-only">GitHub</span>
@@ -48,7 +48,7 @@ import { contact, mailto } from '../data/contact';
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            class="flex h-14 w-14 items-center justify-center border border-border bg-white text-foreground rounded-lg hover:border-primary hover:text-primary hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer shadow-sm lg:h-auto lg:w-auto lg:gap-3 lg:px-6 lg:py-3"
+            class="flex h-14 w-14 items-center justify-center border border-border bg-card text-foreground rounded-lg hover:border-primary hover:text-primary hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer shadow-sm lg:h-auto lg:w-auto lg:gap-3 lg:px-6 lg:py-3"
           >
             <Icon name="linkedin" class="w-8 h-8 lg:w-7 lg:h-7" />
             <span class="sr-only lg:not-sr-only">LinkedIn</span>
@@ -57,7 +57,7 @@ import { contact, mailto } from '../data/contact';
           <a
             href={mailto}
             aria-label="Email"
-            class="flex h-14 w-14 items-center justify-center border border-border bg-white text-foreground rounded-lg hover:border-primary hover:text-primary hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer shadow-sm lg:h-auto lg:w-auto lg:gap-3 lg:px-6 lg:py-3"
+            class="flex h-14 w-14 items-center justify-center border border-border bg-card text-foreground rounded-lg hover:border-primary hover:text-primary hover:ring-2 hover:ring-primary/20 transition-all cursor-pointer shadow-sm lg:h-auto lg:w-auto lg:gap-3 lg:px-6 lg:py-3"
           >
             <Icon name="mail" class="w-8 h-8 lg:w-7 lg:h-7" />
             <span class="sr-only lg:not-sr-only">Email</span>
@@ -65,7 +65,7 @@ import { contact, mailto } from '../data/contact';
         </div>
       </div>
 
-      <div class="rounded-2xl bg-gradient-to-br from-[#ffe6ef] via-[#ffc4d6] to-[#ffb3cc] p-4 shadow-xl ring-1 ring-white/70 sm:p-8">
+      <div class="rounded-2xl bg-gradient-to-br from-[var(--pink-soft)] via-[var(--pink-medium)] to-[var(--pink-accent)] p-4 shadow-xl ring-1 ring-border sm:p-8">
         <form
           id="contact-form"
           action="https://formspree.io/f/xeeqajvb"
@@ -84,7 +84,7 @@ import { contact, mailto } from '../data/contact';
                 autocomplete="given-name"
                 placeholder="Jane"
                 required
-                class="w-full rounded-lg border border-white/80 bg-white/95 px-3 py-2.5 text-sm text-foreground shadow-sm transition-all placeholder:text-muted-foreground focus:border-white focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-text sm:px-4 sm:py-3 sm:text-base"
+                class="w-full rounded-lg border border-border bg-card/95 px-3 py-2.5 text-sm text-foreground shadow-sm transition-all placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-text sm:px-4 sm:py-3 sm:text-base"
               />
             </div>
 
@@ -99,7 +99,7 @@ import { contact, mailto } from '../data/contact';
                 autocomplete="family-name"
                 placeholder="Doe"
                 required
-                class="w-full rounded-lg border border-white/80 bg-white/95 px-3 py-2.5 text-sm text-foreground shadow-sm transition-all placeholder:text-muted-foreground focus:border-white focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-text sm:px-4 sm:py-3 sm:text-base"
+                class="w-full rounded-lg border border-border bg-card/95 px-3 py-2.5 text-sm text-foreground shadow-sm transition-all placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-text sm:px-4 sm:py-3 sm:text-base"
               />
             </div>
           </div>
@@ -115,7 +115,7 @@ import { contact, mailto } from '../data/contact';
               autocomplete="email"
               placeholder="jane@example.com"
               required
-              class="w-full rounded-lg border border-white/80 bg-white/95 px-3 py-2.5 text-sm text-foreground shadow-sm transition-all placeholder:text-muted-foreground focus:border-white focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-text sm:px-4 sm:py-3 sm:text-base"
+              class="w-full rounded-lg border border-border bg-card/95 px-3 py-2.5 text-sm text-foreground shadow-sm transition-all placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-text sm:px-4 sm:py-3 sm:text-base"
             />
           </div>
 
@@ -129,7 +129,7 @@ import { contact, mailto } from '../data/contact';
               name="phone"
               autocomplete="tel"
               placeholder=" +1 555-555-0199"
-              class="w-full rounded-lg border border-white/80 bg-white/95 px-3 py-2.5 text-sm text-foreground shadow-sm transition-all placeholder:text-muted-foreground focus:border-white focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-text sm:px-4 sm:py-3 sm:text-base"
+              class="w-full rounded-lg border border-border bg-card/95 px-3 py-2.5 text-sm text-foreground shadow-sm transition-all placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-text sm:px-4 sm:py-3 sm:text-base"
             />
           </div>
 
@@ -144,7 +144,7 @@ import { contact, mailto } from '../data/contact';
               required
               rows="5"
               aria-describedby="message-help"
-              class="w-full rounded-lg border border-white/80 bg-white/95 px-3 py-2.5 text-sm text-foreground shadow-sm transition-all resize-none placeholder:text-muted-foreground focus:border-white focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-text sm:px-4 sm:py-3 sm:text-base"
+              class="w-full rounded-lg border border-border bg-card/95 px-3 py-2.5 text-sm text-foreground shadow-sm transition-all resize-none placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-text sm:px-4 sm:py-3 sm:text-base"
             ></textarea>
           </div>
 
@@ -156,7 +156,7 @@ import { contact, mailto } from '../data/contact';
                   type="checkbox"
                   name="services"
                   value="Website Development"
-                  class="h-4 w-4 rounded border-white/80 text-primary focus:ring-primary/50 cursor-pointer"
+                  class="h-4 w-4 rounded border-border bg-card text-primary focus:ring-primary/50 cursor-pointer"
                 />
                 Website Development
               </label>
@@ -166,7 +166,7 @@ import { contact, mailto } from '../data/contact';
                   type="checkbox"
                   name="services"
                   value="Community & Event Management"
-                  class="h-4 w-4 rounded border-white/80 text-primary focus:ring-primary/50 cursor-pointer"
+                  class="h-4 w-4 rounded border-border bg-card text-primary focus:ring-primary/50 cursor-pointer"
                 />
                 Community &amp; Event Management
               </label>
@@ -176,7 +176,7 @@ import { contact, mailto } from '../data/contact';
                   type="checkbox"
                   name="services"
                   value="Speaking & Workshops"
-                  class="h-4 w-4 rounded border-white/80 text-primary focus:ring-primary/50 cursor-pointer"
+                  class="h-4 w-4 rounded border-border bg-card text-primary focus:ring-primary/50 cursor-pointer"
                 />
                 Speaking &amp; Workshops
               </label>
