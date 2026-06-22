@@ -63,16 +63,16 @@ const formatDateRange = (startDate: string, endDate?: string | null) => {
     <div class="space-y-6">
       {
         experiences.map((exp) => (
-          <div class="themed-section-card bg-card/80 backdrop-blur-sm border border-secondary/70 rounded-xl p-4 sm:p-6 hover:shadow-xl transition-all dark:border-primary/25">
+          <div class="themed-section-card group bg-card/80 backdrop-blur-sm border border-secondary/70 rounded-xl p-4 sm:p-6 hover:shadow-xl transition-all dark:border-primary/25">
             <div class="flex items-start gap-3 sm:gap-4">
-              <div class="w-9 h-9 sm:w-11 sm:h-11 bg-accent rounded-lg border border-secondary/60 text-accent-foreground flex-shrink-0 flex items-center justify-center p-2 sm:p-3 dark:bg-[var(--pink-soft)] dark:border-primary/30 dark:text-white">
+              <div class="themed-section-detail w-9 h-9 sm:w-11 sm:h-11 rounded-lg border flex-shrink-0 flex items-center justify-center p-2 sm:p-3">
                 <Icon name={exp.icon ?? 'briefcase'} />
               </div>
 
               <div class="flex-1 space-y-2">
                 <div class="flex flex-col items-start gap-1 sm:flex-row sm:justify-between sm:gap-4">
                   <div>
-                    <h3 class="text-base sm:text-xl font-medium text-foreground">
+                    <h3 class="text-base sm:text-xl font-medium text-foreground transition-colors group-hover:text-primary">
                       {exp.role}
                     </h3>
                     <p class="text-sm sm:text-base text-muted-foreground">

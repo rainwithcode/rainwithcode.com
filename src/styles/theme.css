@@ -45,6 +45,12 @@
   --pink-soft: #ffe6ef;
   --pink-medium: #ffc4d6;
   --pink-accent: #ffb3cc;
+  --section-hover-background: var(--pink-soft);
+  --secondary-button-background: var(--pink-soft);
+  --secondary-button-hover-background: var(--pink-medium);
+  --section-detail-background: #fff3f7;
+  --section-detail-border: #f6c8d6;
+  --section-detail-foreground: #1a1a1a;
 }
 
 .dark {
@@ -86,6 +92,12 @@
   --pink-soft: #321c28;
   --pink-medium: #492235;
   --pink-accent: #652943;
+  --section-hover-background: var(--pink-medium);
+  --secondary-button-background: var(--pink-medium);
+  --secondary-button-hover-background: var(--pink-accent);
+  --section-detail-background: #321c28;
+  --section-detail-border: #6f394d;
+  --section-detail-foreground: #ffffff;
 }
 
 @theme inline {
@@ -200,13 +212,23 @@
 }
 
 @layer utilities {
+  .themed-section-detail {
+    background-color: var(--section-detail-background);
+    border-color: var(--section-detail-border);
+    color: var(--section-detail-foreground);
+  }
+
+  .themed-secondary-button {
+    background-color: var(--secondary-button-background);
+  }
+
   @media (hover: hover) and (pointer: fine) {
-    .themed-section-card:hover {
-      background-color: var(--pink-medium);
+    .themed-secondary-button:hover {
+      background-color: var(--secondary-button-hover-background);
     }
 
-    .dark .themed-section-card:hover {
-      background-color: var(--pink-medium);
+    .themed-section-card:hover {
+      background-color: var(--section-hover-background);
     }
   }
 

@@ -6,7 +6,7 @@ interface Props {
   class?: string;
 }
 
-const { name, class: className = 'w-4 h-4 text-accent-foreground' } = Astro.props;
+const { name, class: className = 'w-4 h-4 text-[var(--section-detail-foreground)]' } = Astro.props;
 
 const brandIcons: Record<string, string> = {
   React: 'https://cdn.simpleicons.org/react/000000',
