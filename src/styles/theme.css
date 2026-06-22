@@ -11,6 +11,9 @@
   --primary: #d91b55;
   --primary-hover: #bd1749;
   --primary-foreground: #ffffff;
+  --primary-button-background: var(--primary);
+  --primary-button-hover-background: var(--primary-hover);
+  --primary-button-foreground: var(--primary-foreground);
   --secondary: #ffc4d6;
   --secondary-foreground: #1a1a1a;
   --muted: #f9f9f9;
@@ -48,6 +51,11 @@
   --section-hover-background: var(--pink-soft);
   --secondary-button-background: var(--pink-soft);
   --secondary-button-hover-background: var(--pink-medium);
+  --secondary-button-foreground: var(--primary);
+  --tertiary-icon-button-background: transparent;
+  --tertiary-icon-button-hover-background: var(--pink-soft);
+  --tertiary-icon-button-foreground: var(--muted-foreground);
+  --tertiary-icon-button-hover-foreground: var(--primary);
   --section-detail-background: #fff3f7;
   --section-detail-border: #f6c8d6;
   --section-detail-foreground: #1a1a1a;
@@ -63,6 +71,9 @@
   --primary: #ff7da2;
   --primary-hover: #ffadc3;
   --primary-foreground: #231018;
+  --primary-button-background: var(--primary);
+  --primary-button-hover-background: var(--primary-hover);
+  --primary-button-foreground: var(--primary-foreground);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -95,6 +106,11 @@
   --section-hover-background: var(--pink-medium);
   --secondary-button-background: var(--pink-medium);
   --secondary-button-hover-background: var(--pink-accent);
+  --secondary-button-foreground: #ffffff;
+  --tertiary-icon-button-background: var(--card);
+  --tertiary-icon-button-hover-background: var(--pink-soft);
+  --tertiary-icon-button-foreground: var(--muted-foreground);
+  --tertiary-icon-button-hover-foreground: var(--primary);
   --section-detail-background: #321c28;
   --section-detail-border: #6f394d;
   --section-detail-foreground: #ffffff;
@@ -220,11 +236,31 @@
 
   .themed-secondary-button {
     background-color: var(--secondary-button-background);
+    color: var(--secondary-button-foreground);
+  }
+
+  .themed-primary-button {
+    background-color: var(--primary-button-background);
+    color: var(--primary-button-foreground);
+  }
+
+  .themed-tertiary-icon-button {
+    background-color: var(--tertiary-icon-button-background);
+    color: var(--tertiary-icon-button-foreground);
   }
 
   @media (hover: hover) and (pointer: fine) {
+    .themed-primary-button:hover {
+      background-color: var(--primary-button-hover-background);
+    }
+
     .themed-secondary-button:hover {
       background-color: var(--secondary-button-hover-background);
+    }
+
+    .themed-tertiary-icon-button:hover {
+      background-color: var(--tertiary-icon-button-hover-background);
+      color: var(--tertiary-icon-button-hover-foreground);
     }
 
     .themed-section-card:hover {

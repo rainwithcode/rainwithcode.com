@@ -44,7 +44,7 @@ import { contact, mailto } from '../data/contact';
           <button
             type="button"
             data-scroll-to="projects"
-            class="flex-1 px-4 py-3 text-sm sm:text-base bg-primary text-primary-foreground rounded-lg hover:bg-[var(--primary-hover)] transition-colors flex items-center justify-center gap-2 shadow-sm cursor-pointer sm:flex-none sm:px-8"
+            class="themed-primary-button flex-1 px-4 py-3 text-sm sm:text-base rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm cursor-pointer sm:flex-none sm:px-8"
           >
             View Projects
             <Icon name="arrow-right" class="w-4 h-4" />
@@ -52,7 +52,7 @@ import { contact, mailto } from '../data/contact';
           <button
             type="button"
             data-scroll-to="contact"
-            class="themed-secondary-button flex-1 px-4 py-3 text-sm sm:text-base text-foreground rounded-lg transition-colors cursor-pointer sm:flex-none sm:px-8 dark:text-white"
+            class="themed-secondary-button flex-1 px-4 py-3 text-sm sm:text-base rounded-lg transition-colors cursor-pointer sm:flex-none sm:px-8"
           >
             Let's Connect
           </button>
@@ -63,26 +63,26 @@ import { contact, mailto } from '../data/contact';
             href={contact.github}
             target="_blank"
             rel="noopener noreferrer"
-            class="themed-secondary-button flex h-12 w-12 items-center justify-center rounded-lg border border-border text-foreground shadow-sm transition-all hover:border-primary hover:text-primary hover:ring-2 hover:ring-primary/30 cursor-pointer sm:h-14 sm:w-14 dark:text-white dark:hover:text-white"
+            class="themed-tertiary-icon-button flex h-11 w-11 items-center justify-center rounded-lg border border-border transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background cursor-pointer sm:h-12 sm:w-12"
             aria-label="GitHub"
           >
-            <Icon name="github" class="w-7 h-7 sm:w-8 sm:h-8" />
+            <Icon name="github" class="h-5 w-5 sm:h-6 sm:w-6" />
           </a>
           <a
             href={contact.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            class="themed-secondary-button flex h-12 w-12 items-center justify-center rounded-lg border border-border text-foreground shadow-sm transition-all hover:border-primary hover:text-primary hover:ring-2 hover:ring-primary/30 cursor-pointer sm:h-14 sm:w-14 dark:text-white dark:hover:text-white"
+            class="themed-tertiary-icon-button flex h-11 w-11 items-center justify-center rounded-lg border border-border transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background cursor-pointer sm:h-12 sm:w-12"
             aria-label="LinkedIn"
           >
-            <Icon name="linkedin" class="w-7 h-7 sm:w-8 sm:h-8" />
+            <Icon name="linkedin" class="h-5 w-5 sm:h-6 sm:w-6" />
           </a>
           <a
             href={mailto}
-            class="themed-secondary-button flex h-12 w-12 items-center justify-center rounded-lg border border-border text-foreground shadow-sm transition-all hover:border-primary hover:text-primary hover:ring-2 hover:ring-primary/30 cursor-pointer sm:h-14 sm:w-14 dark:text-white dark:hover:text-white"
+            class="themed-tertiary-icon-button flex h-11 w-11 items-center justify-center rounded-lg border border-border transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background cursor-pointer sm:h-12 sm:w-12"
             aria-label="Email"
           >
-            <Icon name="mail" class="w-7 h-7 sm:w-8 sm:h-8" />
+            <Icon name="mail" class="h-5 w-5 sm:h-6 sm:w-6" />
           </a>
         </div>
 
