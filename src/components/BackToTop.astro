@@ -1,0 +1,37 @@
+---
+import Icon from './Icon.astro';
+---
+
+<button
+  type="button"
+  data-back-to-top
+  data-scroll-to="top"
+  class="themed-primary-button pointer-events-none fixed right-4 bottom-28 z-40 flex h-12 w-12 translate-y-2 cursor-pointer items-center justify-center rounded-full opacity-0 shadow-sm transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background md:right-8 md:bottom-8"
+  aria-label="Back to top"
+  aria-hidden="true"
+  title="Back to top"
+  tabindex="-1"
+>
+  <Icon name="arrow-up" class="h-5 w-5" />
+</button>
+
+<script>
+  const button = document.querySelector('[data-back-to-top]');
+  const hero = document.querySelector('[data-hero]');
+
+  const updateBackToTop = () => {
+    if (!(button instanceof HTMLButtonElement) || !(hero instanceof HTMLElement)) return;
+
+    const shouldShow = hero.getBoundingClientRect().bottom <= 0;
+    button.classList.toggle('opacity-0', !shouldShow);
+    button.classList.toggle('translate-y-2', !shouldShow);
+    button.classList.toggle('pointer-events-none', !shouldShow);
+    button.classList.toggle('opacity-100', shouldShow);
+    button.classList.toggle('translate-y-0', shouldShow);
+    button.setAttribute('aria-hidden', String(!shouldShow));
+    button.tabIndex = shouldShow ? 0 : -1;
+  };
+
+  updateBackToTop();
+  window.addEventListener('scroll', updateBackToTop, { passive: true });
+</script>

@@ -1,6 +1,7 @@
 ---
 import '../styles/index.css';
 import favicon from '../assets/favicon.png';
+import BackToTop from '../components/BackToTop.astro';
 import BottomNav from '../components/BottomNav.astro';
 
 interface Props {
@@ -43,6 +44,7 @@ const {
     <slot />
 
     <BottomNav />
+    <BackToTop />
 
     <script is:inline>
       document.addEventListener('click', (event) => {
